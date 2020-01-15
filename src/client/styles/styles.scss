@@ -1,0 +1,47 @@
+@import "./input.scss";
+@import "./result.scss";
+h1, h2 {
+    text-align: center;
+}
+header {
+    grid-area: header;
+}
+body {
+    background-color: black;
+    color: white;
+    height: 100vh;
+}
+
+button {
+    background-color: white;
+    color: black;
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+}
+footer {
+    grid-area: footer;
+    background-color: red;
+}
+.container {
+    grid-area: container;
+    background-color: blue;
+}
+@media(min-width:900px){
+    body {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-rows: auto 1fr 50px;
+        grid-template-columns: 1ft;
+        grid-template-areas: 
+        "header"
+        "container"
+        "footer";
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
