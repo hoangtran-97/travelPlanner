@@ -1,9 +1,15 @@
+@import "./input.scss";
+@import "./result.scss";
 h1, h2 {
     text-align: center;
+}
+header {
+    grid-area: header;
 }
 body {
     background-color: black;
     color: white;
+    height: 100vh;
 }
 
 button {
@@ -13,14 +19,29 @@ button {
     height: 30px;
     border-radius: 10px;
 }
-
-.input {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
+footer {
+    grid-area: footer;
+    background-color: red;
 }
-#destination, #departure-date {
-    margin-bottom: 10px;
-    width: 200px;
+.container {
+    grid-area: container;
+    background-color: blue;
+}
+@media(min-width:900px){
+    body {
+        display: grid;
+        grid-gap: 20px;
+        grid-template-rows: auto 1fr 50px;
+        grid-template-columns: 1ft;
+        grid-template-areas: 
+        "header"
+        "container"
+        "footer";
+    }
+    .container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
 }
