@@ -12,6 +12,12 @@ app.listen(port, function () {
     console.log(`Example app listening on port ${port}!`)
 })
 app.get("/all", getAll)
+app.post("/destination", postDestination)
+
 function getAll(request, response) {
     response.send(projectData)
+}
+
+function postDestination(request, response) {
+
 }
