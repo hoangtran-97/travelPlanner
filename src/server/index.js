@@ -9,7 +9,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 const keys = {
     GEONAMES_USERNAME: process.env.KEY_USERNAME,
-    DARKSKY_KEY: process.env.KEY_DARKSKY
+    DARKSKY_KEY: process.env.KEY_DARKSKY,
+    PIXABAY_KEY: process.env.KEY_PIXABAY
 }
 app.use(bodyParser.json())
 app.use(cors());
