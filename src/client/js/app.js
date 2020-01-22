@@ -1,4 +1,5 @@
 import postData from "./postData"
+import updateUI from "./updateUI"
 import { API_GEONAMES, API_DARKSKY, API_PIXABAY } from './api'
 
 const submitButton = document.getElementById("submit")
@@ -26,10 +27,10 @@ const onSubmit = async (event) => {
     const submitDepartureDate = document.getElementById("departure-date").value
     submitDestination && submitDepartureDate ?
         getLocationData(submitDestination, submitDepartureDate)
-            .then((locationInfo) => {
-                getWeatherData(locationInfo)
-                getLocationImage(locationInfo)
-            })
+            .then(() => getWeatherData(submitData["locationInfo"]))
+            .then(() => getLocationImage(submitData["locationInfo"]))
+            .then(() => postData("http://localhost:8081/destination", submitData))
+            .then(() => updateUI())
         : alert("missing field")
 }
 
@@ -39,6 +40,7 @@ const getLocationData = async (submitDestination, submitDepartureDate) => {
     const response = await fetch(URL_GET_LOCATION)
     try {
         const locationInfo = await response.json();
+        submitData["locationInfo"] = locationInfo
         console.log("locationInfo", locationInfo)
         return locationInfo
     }
@@ -53,6 +55,7 @@ const getWeatherData = async (locationInfo) => {
     const response = await fetch(URL_GET_WEATHER)
     try {
         const weatherInfo = await response.json();
+        submitData["weatherInfo"] = weatherInfo
         console.log("weatherInfo", weatherInfo)
     }
     catch (error) {
@@ -68,7 +71,7 @@ const getLocationImage = async (locationInfo) => {
         const imageInfo = await response.json();
         console.log("imageInfo", imageInfo)
         var randomImage = imageInfo.hits[Math.floor(Math.random() * imageInfo.hits.length)];
-        console.log(randomImage)
+        submitData["imageInfo"] = randomImage
     }
     catch (error) {
         console.log("error", error)

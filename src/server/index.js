@@ -1,4 +1,4 @@
-const projectData = { "hello": "this is server" }
+const projectData = {}
 const path = require('path')
 const express = require('express')
 const bodyParser = require('body-parser')
@@ -31,5 +31,6 @@ function getKeys(request, response) {
 }
 
 function postDestination(request, response) {
-
+    projectData["destinationData"] = request.body
+    response.send(projectData)
 }
