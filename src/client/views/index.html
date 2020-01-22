@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../styles/styles.css">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
     <title>Travel Planner</title>
 </head>
@@ -19,8 +18,8 @@
             <lottie-player src="https://assets5.lottiefiles.com/datafiles/gbQKQKT9Z0WGdT9/data.json"
                 background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay>
             </lottie-player>
-            <input id="destination" type="text" placeholder="Destination">
-            <input id="departure-date" type="date" placeholder="departure-date">
+            <input id="destination" type="text" placeholder="Destination" required>
+            <input id="departure-date" type="date" placeholder="departure-date" required>
             <button id="submit" type="submit" class="button">Start Planning</button>
         </div>
         <div class="result">
