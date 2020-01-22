@@ -67,6 +67,8 @@ const getLocationImage = async (locationInfo) => {
     try {
         const imageInfo = await response.json();
         console.log("imageInfo", imageInfo)
+        var randomImage = imageInfo.hits[Math.floor(Math.random() * imageInfo.hits.length)];
+        console.log(randomImage)
     }
     catch (error) {
         console.log("error", error)
