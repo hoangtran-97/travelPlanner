@@ -18,8 +18,24 @@ const getKeys = async () => {
         console.log("error", error)
     }
 }
+const limitDatePicker = () => {
+    const today = new Date();
+    let dd = today.getDate();
+    let mm = today.getMonth() + 1; //January is 0!
+    const yyyy = today.getFullYear();
+    if (dd < 10) {
+        dd = '0' + dd
+    }
+    if (mm < 10) {
+        mm = '0' + mm
+    }
+    const dateTime = `${yyyy}-${mm}-${dd}`;
+    document.getElementById("departure-date").setAttribute("min", dateTime);
+    console.log(dateTime)
+}
 //fetch all keys
 getKeys()
+limitDatePicker()
 
 const onSubmit = async (event) => {
     event.preventDefault()
