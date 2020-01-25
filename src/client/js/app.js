@@ -1,7 +1,10 @@
 import postData from "./postData"
 import updateUI from "./updateUI"
 import { API_GEONAMES, API_DARKSKY, API_PIXABAY } from './api'
+const Moment = require('moment');
+const MomentRange = require('moment-range');
 
+const moment = MomentRange.extendMoment(Moment);
 const submitButton = document.getElementById("submit")
 const submitData = {}
 let keys = {}
@@ -30,8 +33,8 @@ const limitDatePicker = () => {
         mm = '0' + mm
     }
     const dateTime = `${yyyy}-${mm}-${dd}`;
+    submitData["todayDate"] = dateTime
     document.getElementById("departure-date").setAttribute("min", dateTime);
-    console.log(dateTime)
 }
 //fetch all keys
 getKeys()
@@ -52,6 +55,11 @@ const onSubmit = async (event) => {
 
 const getLocationData = async (submitDestination, submitDepartureDate) => {
     submitData["departureDate"] = submitDepartureDate
+    //Moments
+    const start = new Date("11/30/2018"), end = new Date("09/30/2019")
+    const range = moment.range(moment(start), moment(end));
+
+    console.log(Array.from(range.by('day')))
     const URL_GET_LOCATION = `${API_GEONAMES}${submitDestination}&maxRows=1&username=${keys.GEONAMES_USERNAME}`
     const response = await fetch(URL_GET_LOCATION)
     try {
