@@ -76,7 +76,7 @@ const getLocationData = async (submitDestination, submitDepartureDate) => {
 
 const getWeatherData = async (locationInfo) => {
     const { lng, lat } = locationInfo.geonames[0]
-    const URL_GET_WEATHER = `https://cors-anywhere.herokuapp.com/${API_DARKSKY}${keys.DARKSKY_KEY}/${lat},${lng}`
+    const URL_GET_WEATHER = `https://cors-anywhere.herokuapp.com/${API_DARKSKY}${keys.DARKSKY_KEY}/${lat},${lng}?units=si`
     const response = await fetch(URL_GET_WEATHER)
     try {
         const weatherInfo = await response.json();
