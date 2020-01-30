@@ -2,15 +2,15 @@ const updateUI = async () => {
     const request = await fetch("http://localhost:8081/all")
     try {
         const projectData = await request.json();
-        const { departureDate, locationInfo, weatherInfo, destinationInfo } = projectData["destinationData"]
+        const { departureDate, departureETA, locationInfo, weatherInfo, destinationInfo } = projectData["destinationData"]
         const { name, countryName } = locationInfo.geonames[0]
-        const destination = document.getElementById("result-destination")
-        const departure = document.getElementById("result-departure-date")
-        const departureETA = document.getElementById("result-time-to-departure")
+        const elementDestination = document.getElementById("result-destination")
+        const elementDepartureDate = document.getElementById("result-departure-date")
+        const elementDepartureETA = document.getElementById("result-time-to-departure")
         const result = document.getElementById("result")
-        destination.innerHTML = `${name}, ${countryName}`
-        departure.innerHTML = `Departure date: ${departureDate}`
-        departureETA.innerHTML = `Time to departure: 123`
+        elementDestination.innerHTML = `${name}, ${countryName}`
+        elementDepartureDate.innerHTML = `Departure date: ${departureDate}`
+        elementDepartureETA.innerHTML = `Time to departure: ${departureETA} days`
         result.style.backgroundImage = `url("https://source.unsplash.com/1600x900/?travel")`
     }
     catch (error) {

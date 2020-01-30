@@ -54,12 +54,13 @@ const onSubmit = async (event) => {
 }
 
 const getLocationData = async (submitDestination, submitDepartureDate) => {
+    //Calculate ETA
+    const start = moment(new Date(), 'YYYY-DD-MM')
+    const end = moment(new Date(submitDepartureDate), 'YYYY-DD-MM')
+    const range = moment.range(start, end);
+    const length = Array.from(range.by('day'))
     submitData["departureDate"] = submitDepartureDate
-    //Moments
-    const start = new Date("11/30/2018"), end = new Date("09/30/2019")
-    const range = moment.range(moment(start), moment(end));
-
-    console.log(Array.from(range.by('day')))
+    submitData["departureETA"] = length.length
     const URL_GET_LOCATION = `${API_GEONAMES}${submitDestination}&maxRows=1&username=${keys.GEONAMES_USERNAME}`
     const response = await fetch(URL_GET_LOCATION)
     try {
