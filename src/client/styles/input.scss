@@ -3,8 +3,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background-color: teal;
     padding: 20px;
+    background-color: rgba(68, 62, 62, 0.7) !important;
+    background-blend-mode: color;
+    background-size: cover;
 }
 #destination, #departure-date {
     margin-bottom: 10px;

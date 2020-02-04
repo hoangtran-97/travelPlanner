@@ -48,6 +48,7 @@ const onSubmit = async (event) => {
         getLocationData(submitDestination, submitDepartureDate)
             .then(() => getWeatherData(submitData["locationInfo"]))
             .then(() => getLocationImage(submitData["locationInfo"]))
+            .then(() => getWeatherPrediction(submitData["locationInfo"]))
             .then(() => postData("http://localhost:8081/destination", submitData))
             .then(() => updateUI())
         : alert("missing field")
@@ -82,6 +83,22 @@ const getWeatherData = async (locationInfo) => {
         const weatherInfo = await response.json();
         submitData["weatherInfo"] = weatherInfo
         console.log("weatherInfo", weatherInfo)
+    }
+    catch (error) {
+        console.log("error", error)
+    }
+}
+
+const getWeatherPrediction = async (locationInfo) => {
+    const { lng, lat } = locationInfo.geonames[0]
+    const { departureDate } = submitData
+    const time = moment(departureDate).unix()
+    const URL_GET_WEATHER_PREDICTION = `https://cors-anywhere.herokuapp.com/${API_DARKSKY}${keys.DARKSKY_KEY}/${lat},${lng},${time}?units=si`
+    const response = await fetch(URL_GET_WEATHER_PREDICTION)
+    try {
+        const weatherPrediction = await response.json();
+        submitData["weatherPrediction"] = weatherPrediction
+        console.log("weatherPrediction", weatherPrediction)
     }
     catch (error) {
         console.log("error", error)
