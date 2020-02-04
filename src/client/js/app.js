@@ -106,8 +106,9 @@ const getWeatherPrediction = async (locationInfo) => {
 }
 
 const getLocationImage = async (locationInfo) => {
-    const { toponymName } = locationInfo.geonames[0]
-    const URL_GET_IMAGE = `https://cors-anywhere.herokuapp.com/${API_PIXABAY}${keys.PIXABAY_KEY}&q=${toponymName}`
+    const { toponymName, name } = locationInfo.geonames[0]
+    console.log(toponymName)
+    const URL_GET_IMAGE = `https://cors-anywhere.herokuapp.com/${API_PIXABAY}${keys.PIXABAY_KEY}&q=${name}`
     const response = await fetch(URL_GET_IMAGE)
     try {
         const imageInfo = await response.json();
