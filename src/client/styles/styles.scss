@@ -24,12 +24,10 @@ button {
 }
 footer {
     grid-area: footer;
-    background-color: black;
     text-align: center;
 }
 .container {
     grid-area: container;
-    background-color: black;
 }
 @media(min-width:900px){
     body {

@@ -120,5 +120,5 @@ const getLocationImage = async (locationInfo) => {
         console.log("error", error)
     }
 }
-
+//TODO: remove all consoles
 export default onSubmit

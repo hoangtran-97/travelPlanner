@@ -1,9 +1,9 @@
 import lottie from "../constants/lottie"
+import * as Vibrant from 'node-vibrant'
 const updateUI = async () => {
     const request = await fetch("http://localhost:8081/all")
     try {
         const projectData = await request.json();
-        console.log(projectData)
         const { departureDate, departureETA, locationInfo, weatherInfo, imageInfo, weatherPrediction } = projectData["destinationData"]
         const { summary, temperature, icon } = weatherInfo.currently
         const { summary: summaryPrediction, temperature: temperaturePrediction } = weatherPrediction.currently
@@ -16,13 +16,13 @@ const updateUI = async () => {
         const elementWeatherArrival = document.getElementById("result-weather-arrival")
         const result = document.getElementById("result")
         const lottiePlayer = document.getElementById("lottie-player");
+        Vibrant.from(webformatURL).getPalette((err, palette) => updateColor(palette))
         elementDestination.innerHTML = `${name}, ${countryName}`
         elementDepartureDate.innerHTML = `Departure date: ${departureDate}`
         elementDepartureETA.innerHTML = `Time to departure: ${departureETA} days`
         elementWeather.innerHTML = `Current weather: ${temperature}&#176 C, ${summary}`
         elementWeatherArrival.innerHTML = `Expected arrival forecast: ${temperaturePrediction}&#176 C, ${summaryPrediction}`
         result.style.backgroundImage = `url(${webformatURL})`
-
         switch (icon) {
             case "clear-day":
                 lottiePlayer.load(lottie.clearDay)
@@ -68,5 +68,11 @@ const updateUI = async () => {
     catch (error) {
         console.log("error", error)
     }
+}
+const updateColor = (palette) => {
+    const { Vibrant, DarkVibrant } = palette
+    document.body.style.backgroundColor = Vibrant.hex;
+    document.getElementById("header").style.color = DarkVibrant.hex
+    document.getElementById("footer").style.color = DarkVibrant.hex
 }
 export default updateUI
