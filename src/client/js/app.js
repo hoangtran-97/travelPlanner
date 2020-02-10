@@ -15,7 +15,6 @@ const getKeys = async () => {
     const request = await fetch("http://localhost:8081/keys")
     try {
         keys = await request.json();
-        console.log("keys", keys)
     }
     catch (error) {
         console.log("error", error)
@@ -67,7 +66,6 @@ const getLocationData = async (submitDestination, submitDepartureDate) => {
     try {
         const locationInfo = await response.json();
         submitData["locationInfo"] = locationInfo
-        console.log("locationInfo", locationInfo)
         return locationInfo
     }
     catch (error) {
@@ -82,7 +80,6 @@ const getWeatherData = async (locationInfo) => {
     try {
         const weatherInfo = await response.json();
         submitData["weatherInfo"] = weatherInfo
-        console.log("weatherInfo", weatherInfo)
     }
     catch (error) {
         console.log("error", error)
@@ -98,7 +95,6 @@ const getWeatherPrediction = async (locationInfo) => {
     try {
         const weatherPrediction = await response.json();
         submitData["weatherPrediction"] = weatherPrediction
-        console.log("weatherPrediction", weatherPrediction)
     }
     catch (error) {
         console.log("error", error)
@@ -112,7 +108,6 @@ const getLocationImage = async (locationInfo) => {
     const response = await fetch(URL_GET_IMAGE)
     try {
         const imageInfo = await response.json();
-        console.log("imageInfo", imageInfo)
         var randomImage = imageInfo.hits[Math.floor(Math.random() * imageInfo.hits.length)];
         submitData["imageInfo"] = randomImage
     }
@@ -120,5 +115,4 @@ const getLocationImage = async (locationInfo) => {
         console.log("error", error)
     }
 }
-//TODO: remove all consoles
 export default onSubmit
