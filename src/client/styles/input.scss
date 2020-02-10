@@ -7,8 +7,17 @@
     background-color: rgba(68, 62, 62, 0.7) !important;
     background-blend-mode: color;
     background-size: cover;
+    height: 400px;
+    width: 300px;
 }
 #destination, #departure-date {
     margin-bottom: 10px;
     width: 200px;
+}
+#destination:hover, #departure-date:hover{
+    cursor: pointer;
+}
+#submit:hover {
+    color: white;
+    background-color: black;
 }
