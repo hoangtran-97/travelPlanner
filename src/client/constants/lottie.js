@@ -1,0 +1,16 @@
+export default {
+    clearDay: "https://assets5.lottiefiles.com/temp/lf20_Stdaec.json",
+    clearNight: "https://assets4.lottiefiles.com/temp/lf20_y6mY2A.json",
+    rain: "https://assets10.lottiefiles.com/temp/lf20_rpC1Rd.json",
+    snow: "https://assets5.lottiefiles.com/temp/lf20_WtPCZs.json",
+    sleet: "https://assets5.lottiefiles.com/temp/lf20_I5XMi9.json",
+    wind: "https://assets5.lottiefiles.com/temp/lf20_VAmWRg.json",
+    fog: "https://assets5.lottiefiles.com/temp/lf20_kOfPKE.json",
+    cloudy: "https://assets2.lottiefiles.com/temp/lf20_VAmWRg.json",
+    partlyCloudyDay: "https://assets9.lottiefiles.com/temp/lf20_dgjK9i.json",
+    partlyCloudyNight: "https://assets8.lottiefiles.com/temp/lf20_Jj2Qzq.json",
+    thunderstorm: "https://assets8.lottiefiles.com/temp/lf20_Kuot2e.json",
+    hail: "https://assets2.lottiefiles.com/packages/lf20_xzgLBZ.json",
+    tornado: "https://assets6.lottiefiles.com/packages/lf20_GZa0et.json",
+    all: "https://assets8.lottiefiles.com/packages/lf20_kd7SIg.json",
+}

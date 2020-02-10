@@ -1,10 +1,11 @@
+import lottie from "../constants/lottie"
 const updateUI = async () => {
     const request = await fetch("http://localhost:8081/all")
     try {
         const projectData = await request.json();
         console.log(projectData)
         const { departureDate, departureETA, locationInfo, weatherInfo, imageInfo, weatherPrediction } = projectData["destinationData"]
-        const { summary, temperature } = weatherInfo.currently
+        const { summary, temperature, icon } = weatherInfo.currently
         const { summary: summaryPrediction, temperature: temperaturePrediction } = weatherPrediction.currently
         const { name, countryName } = locationInfo.geonames[0]
         const { webformatURL } = imageInfo
@@ -14,6 +15,7 @@ const updateUI = async () => {
         const elementWeather = document.getElementById("result-weather")
         const elementWeatherArrival = document.getElementById("result-weather-arrival")
         const result = document.getElementById("result")
+        const lottiePlayer = document.getElementById("lottie-player");
         elementDestination.innerHTML = `${name}, ${countryName}`
         elementDepartureDate.innerHTML = `Departure date: ${departureDate}`
         elementDepartureETA.innerHTML = `Time to departure: ${departureETA} days`
