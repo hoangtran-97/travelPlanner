@@ -16,6 +16,7 @@ const updateUI = async () => {
         const elementWeatherArrival = document.getElementById("result-weather-arrival")
         const result = document.getElementById("result")
         const lottiePlayer = document.getElementById("lottie-player");
+        const lottieTravel = document.getElementById("lottie-travel");
         Vibrant.from(webformatURL).getPalette((err, palette) => updateColor(palette))
         elementDestination.innerHTML = `${name}, ${countryName}`
         elementDepartureDate.innerHTML = `Departure date: ${departureDate}`
@@ -23,6 +24,10 @@ const updateUI = async () => {
         elementWeather.innerHTML = `Current weather: ${temperature}&#176 C, ${summary}`
         elementWeatherArrival.innerHTML = `Expected arrival forecast: ${temperaturePrediction}&#176 C, ${summaryPrediction}`
         result.style.backgroundImage = `url(${webformatURL})`
+        lottieTravel.load("https://assets7.lottiefiles.com/packages/lf20_6wuFVO.json")
+        lottieTravel.addEventListener("loop", () => {
+            lottieTravel.pause()
+        })
         switch (icon) {
             case "clear-day":
                 lottiePlayer.load(lottie.clearDay)
