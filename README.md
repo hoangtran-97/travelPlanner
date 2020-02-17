@@ -16,3 +16,4 @@ git checkout master
 - [X] Back-end Express server with POST and GET route to write and read data.
 - [X] Environmental variable for personal API credentials security.
 - [X] Service worker for offline functionality. 
+- [X] Unit testing with Jest.
