@@ -15,9 +15,9 @@ const keys = {
 app.use(bodyParser.json())
 app.use(cors());
 app.use(express.static('dist'))
-app.listen(port, function () {
-    console.log(`Example app listening on port ${port}!`)
-})
+// app.listen(port, function () {
+//     console.log(`Example app listening on port ${port}!`)
+// })
 app.get("/all", getAll)
 app.get("/keys", getKeys)
 app.post("/destination", postDestination)
@@ -34,3 +34,8 @@ function postDestination(request, response) {
     projectData["destinationData"] = request.body
     response.send(projectData)
 }
+
+app.get('/test', async (req, res) => {
+    res.json({ message: 'pass!' })
+})
+module.exports = app
