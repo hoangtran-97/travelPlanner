@@ -61,6 +61,7 @@ const getLocationData = async (submitDestination, submitDepartureDate) => {
     const length = Array.from(range.by('day'))
     submitData["departureDate"] = submitDepartureDate
     submitData["departureETA"] = length.length
+    console.log(API_GEONAMES)
     const URL_GET_LOCATION = `${API_GEONAMES}${submitDestination}&maxRows=1&username=${keys.GEONAMES_USERNAME}`
     const response = await fetch(URL_GET_LOCATION)
     try {
