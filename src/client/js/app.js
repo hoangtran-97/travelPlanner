@@ -12,7 +12,7 @@ let keys = {}
 submitButton.addEventListener("click", (event) => onSubmit(event))
 
 const getKeys = async () => {
-    const request = await fetch("http://localhost:8081/keys")
+    const request = await fetch("/keys")
     try {
         keys = await request.json();
     }
@@ -48,7 +48,7 @@ const onSubmit = async (event) => {
             .then(() => getWeatherData(submitData["locationInfo"]))
             .then(() => getLocationImage(submitData["locationInfo"]))
             .then(() => getWeatherPrediction(submitData["locationInfo"]))
-            .then(() => postData("http://localhost:8081/destination", submitData))
+            .then(() => postData("/destination", submitData))
             .then(() => updateUI())
         : alert("missing field")
 }

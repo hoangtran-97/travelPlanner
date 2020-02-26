@@ -1,7 +1,7 @@
 import lottie from "../constants/lottie"
 import * as Vibrant from 'node-vibrant'
 const updateUI = async () => {
-    const request = await fetch("http://localhost:8081/all")
+    const request = await fetch("/all")
     try {
         const projectData = await request.json();
         const { departureDate, departureETA, locationInfo, weatherInfo, imageInfo, weatherPrediction } = projectData["destinationData"]
