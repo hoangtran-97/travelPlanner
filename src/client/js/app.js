@@ -15,7 +15,7 @@ const getKeys = async () => {
     const request = await fetch("/keys");
     try {
         keys = await request.json();
-        console.log("keys:", keys);
+        console.log("keys values:", keys);
     } catch (error) {
         console.log("error", error);
     }
