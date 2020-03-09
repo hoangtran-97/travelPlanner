@@ -12,7 +12,7 @@ let keys = {};
 submitButton.addEventListener("click", event => onSubmit(event));
 
 const getKeys = async () => {
-    const request = await fetch("/keys");
+    const request = await fetch("/keys", {mode: "no-cors"});
     try {
         keys = await request.json();
         console.log("keys values:", keys);
