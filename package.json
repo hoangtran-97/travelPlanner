@@ -9,7 +9,7 @@
         "build-prod": "webpack --config webpack.prod.js",
         "build-dev": "webpack-dev-server  --config webpack.dev.js --open",
         "start": "cd src/server && npm install && node server/app.js",
-        "heroku-postbuild": "cd src/client && npm install && npm run build-prod"
+        "postinstall": "cd src/client && npm install && npm run build-prod"
     },
     "keywords": [],
     "author": "",
