@@ -1,10 +1,5 @@
+const API_GEONAMES = "https://api.geonames.org/searchJSON?name_startsWith=";
+const API_DARKSKY = "https://api.darksky.net/forecast/";
+const API_PIXABAY = "https://pixabay.com/api/?key=";
 
-const API_GEONAMES = "https://api.geonames.org/searchJSON?name_startsWith="
-const API_DARKSKY = "https://api.darksky.net/forecast/"
-const API_PIXABAY = "https://pixabay.com/api/?key="
-
-export {
-    API_GEONAMES,
-    API_DARKSKY,
-    API_PIXABAY
-}
+export {API_GEONAMES, API_DARKSKY, API_PIXABAY};

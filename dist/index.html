@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js" defer></script>
+    <title>Travel Planner</title>
+<link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <header>
+        <h1 id="header">Travel Planner</h1>
+    </header>
+    <div class="container">
+        <div class="input">
+            <lottie-player src="https://assets5.lottiefiles.com/datafiles/gbQKQKT9Z0WGdT9/data.json"
+                background="transparent" speed="1" style="width: 300px; height: 300px;" loop autoplay
+                id="lottie-travel">
+            </lottie-player>
+            <input id="destination" type="text" placeholder="Destination" required>
+            <input id="departure-date" type="date" placeholder="departure-date" required>
+            <button id="submit" type="submit" class="button">Start Planning</button>
+        </div>
+        <div class="result" id="result">
+            <h2 id="result-destination">Travelling to:</h2>
+            <lottie-player src="https://assets8.lottiefiles.com/packages/lf20_kd7SIg.json" background="transparent"
+                speed="3" style="width: 300px; height: 300px;" id="lottie-player" loop autoplay>
+            </lottie-player>
+            <p id="result-departure-date">Departure date:</p>
+            <p id="result-time-to-departure">Time to departure: </p>
+            <p id="result-weather">Current weather:</p>
+            <p id="result-weather-arrival">Expected arrival forecast:</p>
+        </div>
+    </div>
+    <footer id="footer">
+        Copyright
+    </footer>
+    <script>
+        // Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+            // Use the window load event to keep the page load performant
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+        }
+    </script>
+<script type="text/javascript" src="main.js"></script></body>
+
+</html>
